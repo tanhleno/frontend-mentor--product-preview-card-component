@@ -1,0 +1,118 @@
+:root {
+    --cream: hsl(30, 38%, 92%);
+    --white: hsl(0, 0%, 100%);
+    --dark-cyan: hsl(158, 36%, 37%);
+    --very-dark-cyan: hsl(159, 50%, 24%);
+    --very-dark-blue: hsl(212, 21%, 14%);
+    --dark-grayish-blue: hsl(228, 12%, 48%);
+    --card-min-width: 343px;
+    --card-max-width: 600px;
+    --card-min-height: 450px;
+    --card-border-radius: 8px;
+    --card-margin: 16px;
+    --screen-mim-width: 320px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--cream);
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-container {
+    background-color: var(--white);
+    min-width: calc(var(--screen-mim-width) - 2 * var(--card-margin));
+    width: 100%;
+    max-width: calc(var(--card-max-width) - 2 * var(--card-margin));
+    min-height: calc(var(--card-min-height) - 2 * var(--card-margin));
+    margin: var(--card-margin);
+    border-radius: var(--card-border-radius);
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+#preview-image {
+    object-fit: cover;
+    width: 50%;
+}
+
+#content {
+    width: calc(50% - 30px * 2);
+    padding: 30px;
+    font-family: Montserrat;
+    font-weight: 500;
+    color: var(--dark-grayish-blue);
+    font-size: 14px;
+    & > span#category {
+        font-size: 12px;
+    }
+    & > h1 {
+        font-size: 32px;
+        font-family: Fraunces;
+        font-weight: 700;
+        color: var(--very-dark-blue);
+        margin-top: 24px;
+        margin-bottom: 26px;
+        line-height: calc(1em + 2px);
+    }
+    & > p {
+        margin-bottom: 26px;
+        line-height: calc(1em + 8px);
+    }
+    & > div#price-container {
+        display: flex;
+        align-items: center;
+    }
+    & span#current-price {
+        font-size: 32px;
+        font-family: Fraunces;
+        font-weight: 700;
+        color: var(--dark-cyan);
+        margin-right: 12px;
+    }
+    & span#old-price {
+        font-size: 14px;
+        text-decoration: line-through;
+        color: var(--dark-grayish-blue);
+    }
+    & > button {
+        font-family: Montserrat;
+        font-weight: 700;
+        background-color: var(--dark-cyan);
+        color: var(--white);
+        border-radius: 8px;
+        margin-top: 16px;
+        width: 100%;
+        padding: 14px 18px;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        &:hover {
+            cursor: pointer;
+        }
+        &:active {
+            background-color: var(--very-dark-cyan);
+            /*
+            transform: translateY(2px);
+            */
+        }
+    }
+}
+
+@media (max-width: 599px) {
+    #preview-image {
+        width: 100%;
+        height: calc(var(--card-min-height) / 2);
+    }
+    
+    #content {
+        width: calc(100% - 32px * 2);
+    }
+}
